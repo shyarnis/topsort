@@ -27,3 +27,14 @@
    - `enum` is used instead of hashset since it need to track of 3 states, while hashset can track of 2 states
    - Time Complexity: `O(V + E)`, each node and edge is visited at most once. 
    - Space Complexity: `O(V)`, for the state map and recursion stack.
+
+7. Topological Sort using Kahn Algorithm
+- **No need of cycle detection** because Kahn's algorithm already detects cycle implicitly
+```java
+   if (result.size() != graph.getNodes().size()) { 
+      throw new IllegalStateException("Graph has a cycle; topological sort is not possible.");
+   }
+```
+- Since, the topological sort result contains all nodes which should be equal to length of all nodes of graph
+- Time Complexity: `O(V + E)`
+- Space Complexity: `O(V + E)`
