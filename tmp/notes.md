@@ -21,4 +21,9 @@
 5. Testing a Graph
    - Junit is used for writing unit tests
    - most of the annotations are located in `junit-jupiter-api`
-   
+
+6. Cycle Detection
+   - it must be Directed Acyclic Graph, so cycle detection is must
+   - `enum` is used instead of hashset since it need to track of 3 states, while hashset can track of 2 states
+   - Time Complexity: `O(V + E)`, each node and edge is visited at most once. 
+   - Space Complexity: `O(V)`, for the state map and recursion stack.
