@@ -7,3 +7,7 @@ target/
 
 # result of graph visualizer
 output/
+
+# input for topological sort
+*.txt
+*.csv

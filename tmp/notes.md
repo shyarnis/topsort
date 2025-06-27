@@ -70,3 +70,19 @@ rather than with instances of that class. So, it is moved inside `utils/` direct
         GraphVisualizer.renderDotToPng(dir + "/after.dot", dir + "/after.png");
     }
 ```
+
+9. Edge Parser
+- the input for EdgeParser should be in relative to project root named as `graph.txt`
+- TODO: Use resources/graph.txt via classloader
+- TODO: accept file path from command line argument
+- Usage of edge parser by creating main function inside that class
+```java
+ public static void main(String[] args) throws IOException {
+     //1. Load from file
+     Graph<String> graph = EdgeParser.parseEdgesFromFile("graph.txt");
+
+     // 2. sort the graph
+     TopologicalSort<String>  ts = new TopologicalSort<>(graph);
+     List<String> sorted = ts.sort();
+ }
+```
