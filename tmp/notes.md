@@ -38,3 +38,35 @@
 - Since, the topological sort result contains all nodes which should be equal to length of all nodes of graph
 - Time Complexity: `O(V + E)`
 - Space Complexity: `O(V + E)`
+
+8. Graph Visualizer
+- all of the methods in that class are **static** which means the method is associated with the class itself, 
+rather than with instances of that class. So, it is moved inside `utils/` directory.
+
+- Usage of graph visualizer by creating main function inside that class.
+```java
+    public static void main(String[] args) throws IOException, InterruptedException {
+        Graph<String> graph = new Graph<>();
+        graph.addEdge("A", "B");
+        graph.addEdge("A", "C");
+        graph.addEdge("A", "D");
+        graph.addEdge("B", "E");
+        graph.addEdge("C", "E");
+
+        // create an output directory if not present
+        String dir = "output";
+        Files.createDirectories(Paths.get(dir));
+
+        // 1. visualize original graph
+        GraphVisualizer.visualizeOriginalGraph(graph, dir +"/before.dot");
+        GraphVisualizer.renderDotToPng(dir + "/before.dot", dir + "/before.png");
+
+        // 2. sort the graph
+        TopologicalSort<String>  ts = new TopologicalSort<String>(graph);
+        List<String> sorted = ts.sort();
+
+        // 3. visualize sorted graph
+        GraphVisualizer.visualizeSortedGraph(sorted, dir + "/after.dot");
+        GraphVisualizer.renderDotToPng(dir + "/after.dot", dir + "/after.png");
+    }
+```

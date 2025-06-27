@@ -4,3 +4,6 @@ tmp/*.class
 .classpath
 .project
 target/
+
+# result of graph visualizer
+output/
