@@ -11,3 +11,11 @@ output/
 # input for topological sort
 *.txt
 *.csv
+
+#  java mircobenchmark harness(jmh)
+src/benchmark/
+
+# some java codes and notes
+tmp/
+
+topsort.iml

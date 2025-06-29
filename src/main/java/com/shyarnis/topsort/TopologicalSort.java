@@ -2,15 +2,41 @@ package com.shyarnis.topsort;
 
 import java.util.*;
 
-
+/**
+ * Performs a topological sort on a directed acyclic graph (DAG) using Kahn's algorithm.
+ * <p>
+ * This implementation detects cycles automatically and throws an exception
+ * if the graph is not a valid DAG.
+ *
+ * @param <T> the type of nodes in the graph
+ */
 public class TopologicalSort<T> {
+
+    /**
+     * The graph to be sorted topologically.
+     */
     private final Graph<T> graph;
 
+    /**
+     * Constructs a new topological sorter for the given graph.
+     *
+     * @param graph the directed graph to sort
+     */
     public TopologicalSort(Graph<T> graph) {
         this.graph = graph;
     }
 
-
+    /**
+     * Performs a topological sort on the graph.
+     * <p>
+     * The method uses Kahn's algorithm, which works by repeatedly removing
+     * nodes with zero in-degree and reducing the in-degree of their neighbors.
+     * <p>
+     * If the graph contains a cycle, an {@link IllegalStateException} is thrown.
+     *
+     * @return a list of nodes in topological order
+     * @throws IllegalStateException if the graph contains a cycle
+     */
     public List<T> sort() {
         Map<T, Integer> inDegree = computeInDegrees();
         Queue<T> queue = new LinkedList<>();
@@ -43,6 +69,11 @@ public class TopologicalSort<T> {
         return result;
     }
 
+    /**
+     * Computes the in-degree (number of incoming edges) for each node in the graph.
+     *
+     * @return a map where keys are nodes and values are their in-degree counts
+     */
     private Map<T, Integer> computeInDegrees() {
         Map<T, Integer> inDegree = new HashMap<>();
 

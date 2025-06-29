@@ -86,3 +86,11 @@ rather than with instances of that class. So, it is moved inside `utils/` direct
      List<String> sorted = ts.sort();
  }
 ```
+
+10. Benchmarking
+- act of running a computer program, in order to assess the relative performance of an object, 
+normally by running a number of standard tests and trials against it.
+
+
+11. Documentation
+- [mvn and javadoc](https://www.baeldung.com/javadoc#2-javadoc-with-maven-plugin)
