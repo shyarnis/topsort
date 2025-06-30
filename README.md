@@ -39,7 +39,7 @@ implementation group: 'io.github.shyarnis', name: 'topsort', version: '0.0.1'
 ```
 
 ## Documentation
-[API Reference (Javadoc)](https://shyarnis.github.io/toposort/javadoc/)
+[API Reference (Javadoc)](https://shyarnis.github.io/topsort/javadoc/)
 
 ## Quick Start
 ### String Graph
