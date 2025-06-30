@@ -35,7 +35,7 @@ jobs:
         run: |
           rm -rf javadoc
           mkdir -p javadoc
-          cp -r target/reports/apidocs/* javadoc/
+          cp -r ./target/reports/apidocs/* javadoc/
 
       - name: Commit and push
         run: |
