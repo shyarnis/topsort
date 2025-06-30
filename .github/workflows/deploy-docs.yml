@@ -24,21 +24,21 @@ jobs:
       - name: Generate Javadoc
         run: mvn javadoc:javadoc
 
-      - name: Clone gh-pages branch
+      - name: Deploy to GitHub Pages (gh-pages branch)
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git fetch origin gh-pages
-          git checkout gh-pages || git checkout --orphan gh-pages
+          
+          rm -rf gh-pages
+          git clone --branch gh-pages https://github.com/${{ github.repository }} gh-pages
 
-      - name: Copy Javadoc into /javadoc directory
-        run: |
-          rm -rf javadoc
-          mkdir -p javadoc
-          cp -r ./target/reports/apidocs/* javadoc/
+          # Clean and copy new javadoc
+          rm -rf gh-pages/javadoc
+          mkdir -p gh-pages/javadoc
+          cp -r target/site/apidocs/* gh-pages/javadoc/
 
-      - name: Commit and push
-        run: |
+          # Commit and push
+          cd gh-pages
           git add javadoc
-          git commit -m "Update Javadoc at /javadoc"
+          git commit -m "Update Javadoc at /javadoc" || echo "No changes to commit"
           git push origin gh-pages
