@@ -35,7 +35,7 @@ jobs:
           # Clean and copy new javadoc
           rm -rf gh-pages/javadoc
           mkdir -p gh-pages/javadoc
-          cp -r target/site/apidocs/* gh-pages/javadoc/
+          cp -r target/reports/apidocs/* gh-pages/javadoc/
 
           # Commit and push
           cd gh-pages
